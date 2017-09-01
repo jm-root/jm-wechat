@@ -1,1 +1,19 @@
 # jm-wechat
+
+general wechat service
+
+## use:
+
+```javascript
+var s = require('jm-wechat')();
+```
+
+## run:
+
+```javascript
+npm start
+```
+
+## 配置参数
+
+基本配置 请参考 [jm-server] (https://github.com/jm-root/jm-server)
