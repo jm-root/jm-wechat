@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <script src="./common/js/jm-ajax.min.js"></script>
+    <script src="./common/js/args.js"></script>
+    <script src="./common/js/config.js"></script>
+    <script>
+      var args = getArgs();
+      if (args.code) {
+        var uri = apiuri + '/wechat/oauth/' + args.code;
+        var data = {
+          state: args.state || ''
+        }
+        var o = {}
+        jm.enableAjax(o)
+        o.get({
+          url: uri,
+          data: data,
+        }, function (err, doc) {
+          if(err) return alert('验证失败')
+          localStorage.setItem("openid", doc.openid);
+          var uri = args.redirect_uri || '/';
+          window.location.href = uri;
+        })
+      } else if (args.token) {
+        localStorage.setItem("token", args.token);
+        localStorage.setItem("id", args.id);
+        var uri = args.redirect_uri || '/';
+        window.location.href = uri;
+      }
+    </script>
+</head>
+<body>
+<div style="text-align:center">
+    <img src="./common/image/loading.gif">
+</div>
+</body>
+</html>
