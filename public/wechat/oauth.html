@@ -19,9 +19,14 @@
           url: uri,
           data: data,
         }, function (err, doc) {
-          if(err) return alert('验证失败')
+          if (err) return alert('验证失败')
           localStorage.setItem("openid", doc.openid);
           var uri = args.redirect_uri || '/';
+          if (uri.indexOf('?') !== -1) {
+            uri += '&openid=' + doc.openid
+          } else {
+            uri += '?openid=' + doc.openid
+          }
           window.location.href = uri;
         })
       } else if (args.token) {
