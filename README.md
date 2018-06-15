@@ -21,3 +21,7 @@ npm start
 appid 微信公众号appid
 
 appsecret 微信公众号appsecret
+
+redis [] Redis数据库uri
+
+tokenKey ['wechat:token'] Redis数据库主键

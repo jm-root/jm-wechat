@@ -1,5 +1,5 @@
 require('log4js').configure(require('path').join(__dirname, 'log4js.json'))
-var config = {
+let config = {
   development: {
     port: 3000,
     lng: 'zh_CN',
@@ -12,8 +12,9 @@ var config = {
     }
   },
   production: {
-    port: 3000,
+    port: 80,
     lng: 'zh_CN',
+    redis: 'redis://redis.db',
     modules: {
       'wechat': {
         module: process.cwd() + '/lib'
@@ -22,7 +23,7 @@ var config = {
   }
 }
 
-var env = process.env.NODE_ENV || 'development'
+const env = process.env.NODE_ENV || 'development'
 config = config[env] || config['development']
 config.env = env
 
