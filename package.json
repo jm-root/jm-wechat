@@ -46,14 +46,13 @@
     ]
   },
   "dependencies": {
-    "bluebird": "^3.5.1",
     "co-wechat-api": "^3.7.0",
     "co-wechat-oauth": "^2.0.1",
     "config": "^3.2.4",
+    "ioredis": "^4.14.1",
     "jm-server": "^2.1.6",
     "jm-server-jaeger": "^0.0.4",
-    "log4js": "^6.1.0",
-    "redis": "^2.8.0"
+    "log4js": "^6.1.0"
   },
   "devDependencies": {
     "husky": "^1.2.0",
