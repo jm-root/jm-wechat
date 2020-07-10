@@ -1,14 +1,15 @@
 openapi: 3.0.0
-# Added by API Auto Mocking Plugin
 servers:
-  - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/jammacn/jm-wechat/1.0.0
+  - url: 'https://api.jamma.cn/wechat'
+  - url: 'http://gateway.l.jamma.cn/wechat'
+  - url: 'http://api.l.jamma.cn/wechat'
+  - url: 'http://localhost:3000/wechat'
 info:
-  version: "1.0.0"
-  title: jm-wechat-api
+  version: 2.0.1
+  title: wechat
   description: 微信公众号系统API
 paths:
-  /wechat/oauth/uri:
+  /oauth/uri:
     get:
       description: 生成公众号验证uri
       parameters:
@@ -39,7 +40,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Uri'
-  /wechat/oauth/{code}:
+  /oauth/{code}:
     get:
       description: 查询对应 openid 和 unionid
       parameters:
@@ -55,7 +56,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AuthInfo'
-  /wechat/oauth/{code}/user:
+  /oauth/{code}/user:
     get:
       description: 查询对应的用户信息
       parameters:
@@ -71,7 +72,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserInfo'
-  /wechat/users/{openid}:
+  /users/{openid}:
     get:
       description: 查询对应 openid 的用户信息
       parameters:
@@ -87,7 +88,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserInfo'
-  /wechat/qrcodes:
+  /qrcodes:
     post:
       description: 生成二维码
       requestBody:
@@ -102,7 +103,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QrcodeInfo'
-  /wechat/qrcodes/{ticket}:
+  /qrcodes/{ticket}:
     get:
       description: 获取二维码图片网址
       parameters:
