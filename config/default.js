@@ -3,7 +3,7 @@ module.exports = {
   service_name: 'wechat',
   modules: {
     wechat: {
-      module: process.cwd() + '/lib'
+      module: process.cwd()
     }
   }
 }
